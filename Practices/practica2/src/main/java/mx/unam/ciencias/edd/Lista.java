@@ -577,8 +577,8 @@ public class Lista<T> implements Coleccion<T> {
     }
     
     /**
-     * ALGORITMO AUXILIAR
-     * Método copiaLista auxiliar
+     * AUXILIAR
+     * Método que crea una lista dado el índice inicial y final.
      * @param int i: primer índice de la sublista
      * @param int j: segundo índice de la sublista
      * @return la sublista dada desde el índice i hasta el índice j de la lista original

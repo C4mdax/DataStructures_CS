@@ -90,13 +90,12 @@ public class Arreglos {
         return busquedaBinaria(arreglo, elemento, (a, b) -> a.compareTo(b));
     }
     /**
-     * ALGORITMO AUXILIAR
+     * AUXILIAR
      * Método que intercambia 2 objetos dentro de un arreglo
      *
      * @param int i: j-ésimo elemento del arreglo
      * @param int j: j-ésimo elemento del arreglo
      * @param T[] arr: arreglo de tipo genérico.
-     * @author Luis Angel Moreno Delgado
      */
 	
     public static <T> void intercambia (T[]arr, int i, int j){
@@ -106,13 +105,12 @@ public class Arreglos {
     }
 
     /**
-     * ALGORITMO AUXILIAR
+     * AUXILIAR
      * Método quickSort auxiliar
      * @param T[] arr: Arreglo de tipo genérico
      * @param Comparator<T> comparador: Objeto para comparar elementos de tipo genérico
      * @param int a: índice del primer arreglo y subarreglo respectivamente 
      * @param int b: índice del último elemento del arreglo y subarreglo respectivamente
-     * @author Luis Angel Moreno Delgado
      */
 		
     public static <T> void quickSort (T[]arreglo, Comparator<T> comparador, int ini, int fin){
@@ -143,14 +141,13 @@ public class Arreglos {
     }
 	
     /**
-     * ALGORITMO AUXILIAR
+     * AUXILIAR
      * Método busquedaBinaria auxiliar
      * @param T[] arreglo: Arreglo de tipo genérico
      * @param T elemento: Elemento del nodo de tipo genérico
      * @param Comparator<T> comparador: Objeto para comparar elementos de tipo genérico
      * @param int a: índice del primer arreglo y subarreglo respectivamente 
      * @param int b: índice del último elemento del arreglo y subarreglo respectivamente
-     * @author Luis Angel Moreno Delgado
      */
 		
     public static <T> int busquedaBinaria (T[]arreglo, T elemento,Comparator<T> comparador, int a, int b){
