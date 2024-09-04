@@ -85,6 +85,8 @@ public abstract class MeteSaca<T> {
         if (object == null || getClass() != object.getClass())
             return false;
         @SuppressWarnings("unchecked") MeteSaca<T> m = (MeteSaca<T>)object;
+	if (esVacia() && m.esVacia()) return true;
+	if (esVacia() || m.esVacia()) return false;
 	Nodo nodo1 = cabeza;
         Nodo nodo2 = m.cabeza;
 

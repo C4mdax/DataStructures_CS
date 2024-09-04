@@ -31,8 +31,8 @@ public class Pila<T> extends MeteSaca<T> {
             throw new IllegalArgumentException("El elemento no es válido.");
 
         Nodo nodo = new Nodo(elemento);
-
-        if (cabeza == null)
+	
+        if (esVacia())
             cabeza = rabo = nodo;
         else {
             nodo.siguiente = cabeza;
