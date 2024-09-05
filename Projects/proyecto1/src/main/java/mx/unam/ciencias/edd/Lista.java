@@ -1,5 +1,6 @@
 package mx.unam.ciencias.edd;
 
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -371,6 +372,8 @@ public class Lista<T> implements Coleccion<T> {
      *         igual que el número de elementos en la lista.
      */
     public T get(int i) {
+	if (i < 0 || i >= longitud)
+	    throw new ExcepcionIndiceInvalido ("Invalido");
 	Nodo nodo = getNodo(i);
 	return nodo.elemento;
     }
@@ -463,6 +466,96 @@ public class Lista<T> implements Coleccion<T> {
     public IteradorLista<T> iteradorLista() {
         return new Iterador();
     }
+
+    /**
+     * Regresa una copia de la lista, pero ordenada. Para poder hacer el
+     * ordenamiento, el método necesita una instancia de {@link Comparator} para
+     * poder comparar los elementos de la lista.
+     * @param comparador el comparador que la lista usará para hacer el
+     *                   ordenamiento.
+     * @return una copia de la lista, pero ordenada.
+     */
+    public Lista<T> mergeSort(Comparator<T> comparador) {
+	if (longitud < 2)
+	    return copia();
+
+	int mit = longitud / 2;
+	Lista<T> lder = sublista(0, mit).mergeSort(comparador);
+	Lista<T> lizq = sublista(mit, longitud).mergeSort(comparador);
+
+	Lista<T> ult = new Lista<T>();
+	Nodo nodo1 = lder.cabeza;
+	Nodo nodo2 = lizq.cabeza;
+
+	while(nodo1 != null && nodo2 != null){
+	    if (comparador.compare(nodo1.elemento, nodo2.elemento) < 1){
+		ult.agrega(nodo1.elemento);
+		nodo1 = nodo1.siguiente;
+	    }
+	    else{
+		ult.agrega(nodo2.elemento);
+		nodo2 = nodo2.siguiente;
+	    }
+	}
+	while(nodo1 != null){
+	    ult.agrega(nodo1.elemento);
+	    nodo1 = nodo1.siguiente;
+	}
+	while(nodo2 != null){
+	    ult.agrega(nodo2.elemento);
+	    nodo2 = nodo2.siguiente;
+	}
+
+	return ult;      
+    }
+
+    /**
+     * Regresa una copia de la lista recibida, pero ordenada. La lista recibida
+     * tiene que contener nada más elementos que implementan la interfaz {@link
+     * Comparable}.
+     * @param <T> tipo del que puede ser la lista.
+     * @param lista la lista que se ordenará.
+     * @return una copia de la lista recibida, pero ordenada.
+     */
+    public static <T extends Comparable<T>>
+	Lista<T> mergeSort(Lista<T> lista) {
+        return lista.mergeSort((a, b) -> a.compareTo(b));
+    }
+
+    /**
+     * Busca un elemento en la lista ordenada, usando el comparador recibido. El
+     * método supone que la lista está ordenada usando el mismo comparador.
+     * @param elemento el elemento a buscar.
+     * @param comparador el comparador con el que la lista está ordenada.
+     * @return <code>true</code> si el elemento está contenido en la lista,
+     *         <code>false</code> en otro caso.
+     */
+    public boolean busquedaLineal(T elemento, Comparator<T> comparador) {
+	Nodo nodo = cabeza;	
+	for (T elem:this){
+	    if (comparador.compare(nodo.elemento, elemento) == 0){
+		return true;
+	    }
+	    nodo = nodo.siguiente;
+	}
+
+	return false;
+    }
+
+    /**
+     * Busca un elemento en una lista ordenada. La lista recibida tiene que
+     * contener nada más elementos que implementan la interfaz {@link
+     * Comparable}, y se da por hecho que está ordenada.
+     * @param <T> tipo del que puede ser la lista.
+     * @param lista la lista donde se buscará.
+     * @param elemento el elemento a buscar.
+     * @return <code>true</code> si el elemento está contenido en la lista,
+     *         <code>false</code> en otro caso.
+     */
+    public static <T extends Comparable<T>>
+	boolean busquedaLineal(Lista<T> lista, T elemento) {
+        return lista.busquedaLineal(elemento, (a, b) -> a.compareTo(b));
+    }
     
     /**
      * AUXILIAR
@@ -482,4 +575,26 @@ public class Lista<T> implements Coleccion<T> {
 	}
 	return nodo;
     }
+    
+    /**
+     * AUXILIAR
+     * Método que crea una lista dado el índice inicial y final.
+     * @param int i: primer índice de la sublista
+     * @param int j: segundo índice de la sublista
+     * @return la sublista dada desde el índice i hasta el índice j de la lista original
+     */
+
+    private Lista<T> sublista(int i, int j){
+	Lista<T> sublista = new Lista<T>();
+
+	Nodo nodo = getNodo(i);
+
+	while(nodo != null && i < j){
+	    sublista.agrega(nodo.elemento);
+	    nodo = nodo.siguiente;
+	    i++;
+	}
+	return sublista;
+    }
+
 }
