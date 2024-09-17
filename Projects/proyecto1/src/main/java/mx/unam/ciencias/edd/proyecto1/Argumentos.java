@@ -9,15 +9,15 @@ public class Argumentos {
      * @version Septiembre 2024.
      */
 
-    /*
-     * Atributos dados por las banderas.
+    /**
+     * Los atributos muestran las banderas (modos) disponibles para el programa.
      * Ésto permite agregar banderas válidas de forma más dinámica.
      */
 
     public boolean MODO_REVERSA;
     public boolean MODO_ESCRITURA;
 
-    /*
+    /**
      * Constructor del objeto para argumentos.
      * En la clase principal se hace manejo de los atributos de éste objeto para el
      * procesamiento de las banderas.
@@ -26,15 +26,22 @@ public class Argumentos {
 	this.MODO_REVERSA = reversa;
 	this.MODO_ESCRITURA = reversa;
     }
+
     /**
      * Método reversa
      * @param lista, la lista.
      * @return la lista en reversa.
      */
-    private Lista<String> reversa(Lista<String> lista){
+    public Lista<String> reversa(Lista<String> lista){
 	return lista.reversa();
     }
-    private Lista<String> escribe(Lista<String> lista){
-	return null;
+
+    /**
+     * Método escribe. Escribe el texto de una lista en un archivo dado.
+     * @param lista, la lista.
+     * @return la lista en reversa.
+     */
+    public void escribe(String archivo, Lista<String> lista){
+	
     }
 }
