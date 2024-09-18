@@ -1,5 +1,5 @@
 Estructuras de Datos
-=====================
+======================
 
 Práctica 3: Árboles binarios, binarios completos y binarios ordenados
 ---------------------------------------------------------------------
