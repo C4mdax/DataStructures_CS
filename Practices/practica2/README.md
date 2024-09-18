@@ -1,5 +1,5 @@
 Estructuras de Datos
-====================
+=====================
 
 Práctica 2: Pilas, colas, ordenamientos y búsquedas
 ---------------------------------------------------
