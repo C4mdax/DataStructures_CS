@@ -12,8 +12,9 @@ public class Proyecto1 {
 	/*Banderas disponibles: */
         boolean reversa = false; /*"-r": texto ordenado al revés.*/
         boolean escritura = false; /*"-o": texto ordenado sobrescribiendo el archivo dado*/
-	
+
 	Lista<String> entrada = new Lista<>();
+	Lista<String> textoEntrada = new Lista<>();
 	Procesador procesador = new Procesador();
 
 	if (args.length == 0){
@@ -21,23 +22,15 @@ public class Proyecto1 {
 	}
 	else{
 	    for (String argumento : args){
-		if (argumento.equals("-o")) escritura = true;
-		
-		else if (argumento.equals("-r")) reversa = true;
-		else
-		    procesador.getArgumento(argumento, entrada);
+		entrada.agrega(argumento);
+		procesador.getArgumento(argumento, textoEntrada);
 	    }
 	}
 
+	for (String s : entrada)
+	    System.out.println(s);
 	Argumentos banderas = new Argumentos(reversa, escritura);
-	Lista<String> ordenada = Ordenador.ordena(entrada);
-	if (banderas.MODO_REVERSA){
-	    Lista<String> reversa = banderas.reversa(ordenada);
-	    for (String linea : reversa)
-		System.out.println(linea);
-	}
-	else if (banderas.MODO_ESCRITURA)
-	    banderas.escribe()
-	
-    }
+	Lista<String> ordenada = Ordenador.ordena(textoEntrada);
+
+    }	
 }
