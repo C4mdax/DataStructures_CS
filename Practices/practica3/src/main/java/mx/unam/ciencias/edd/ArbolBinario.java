@@ -87,20 +87,29 @@ public abstract class ArbolBinario<T> implements Coleccion<T> {
          * @throws NoSuchElementException si el vértice no tiene derecho.
          */
         @Override public VerticeArbolBinario<T> derecho() {
-	    if (!hayPadre())
+	    if (!hayDerecho())
 		throw new NoSuchElementException ("El vértice no tiene derecho");
 	    return derecho;
         }
+	
+        /**
+         * ALGORITMO AUXILIAR
+         * Algoritmo para calcular la altura de un vértice.
+	 * @param v, vértice a calcular su altura
+	 * @return la altura del vértice
+         */
+        private int alturaAux(Vertice v) {
+	    if (v == null)
+		return -1;
+	    return 1 + Math.max(alturaAux(v.izquierdo), alturaAux(v.derecho));
+	}
 
         /**
          * Regresa la altura del vértice.
          * @return la altura del vértice.
          */
         @Override public int altura() {
-	    if (this == null)
-		return -1;
-	    return 1 + Math.max(this.izquierdo.altura(), this.derecho.altura());
-
+	    return alturaAux(this);
 	}
 
         /**
