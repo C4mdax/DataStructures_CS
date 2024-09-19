@@ -17,7 +17,6 @@ public class Proyecto1 {
 	Procesador procesador = new Procesador();
 
 	if (args.length == 0){
-	    System.out.println("Estándar");
 	    procesador.getEstandar(entrada);
 	}
 	else{
@@ -32,15 +31,13 @@ public class Proyecto1 {
 
 	Argumentos banderas = new Argumentos(reversa, escritura);
 	Lista<String> ordenada = Ordenador.ordena(entrada);
-	System.out.println("Texto ordenado: ");
-	for (String s : ordenada){
-	    System.out.println(s);
+	if (banderas.MODO_REVERSA){
+	    Lista<String> reversa = banderas.reversa(ordenada);
+	    for (String linea : reversa)
+		System.out.println(linea);
 	}
-
-	System.out.println("\n\nTexto ordenado al revés: ");
-	Lista<String> reves = banderas.reversa(ordenada);
-	for (String s : reves){
-	    System.out.println(s);
-	}
+	else if (banderas.MODO_ESCRITURA)
+	    banderas.escribe()
+	
     }
 }
