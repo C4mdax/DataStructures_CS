@@ -1,10 +1,13 @@
 package mx.unam.ciencias.edd.proyecto1;
 import mx.unam.ciencias.edd.Lista;
-
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 public class Argumentos {
-
     /**
-     * Clase Proyecto 1. Clase general para el programa de ordenamiento lexicográfico.
+     * Clase Argumentos. Contendrá las opciones de banderas (y su procesamiento) para el programa.
      * @author Luis Angel Moreno Delgado
      * @version Septiembre 2024.
      */
@@ -37,11 +40,18 @@ public class Argumentos {
     }
 
     /**
-     * Método escribe. Escribe el texto de una lista en un archivo dado.
+     * Método escribe. Concatena los elementos de una lista en un archivo dado.
      * @param lista, la lista.
      * @return la lista en reversa.
      */
     public void escribe(String archivo, Lista<String> lista){
-	
+	try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivo))) {
+            for (String elemento : lista) {
+                writer.write(elemento);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -8,9 +8,8 @@ import java.text.Normalizer;
 import java.util.Iterator;
 
 public class Procesador {
-
     /**
-     * clase procesador. clase encargada del procesamiento de la entrada.
+     * Clase procesador. Clase encargada del procesamiento de la entrada.
      * @author Luis Angel Moreno Delgado
      * @version Septiembre 2024.
      */
@@ -21,7 +20,7 @@ public class Procesador {
     /**
      * Método para normalizar cadenas.
      */
-    protected String normaliza(String cadena){
+    protected static String normaliza(String cadena){
 	return Normalizer.normalize(cadena, Normalizer.Form.NFD)
 	    .replaceAll("[^a-zA-Z0-9]", "")
 	    .toLowerCase()

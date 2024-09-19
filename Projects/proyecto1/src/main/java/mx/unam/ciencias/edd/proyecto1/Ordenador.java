@@ -7,9 +7,15 @@ public class Ordenador extends Procesador{
      * @author Luis Angel Moreno Delgado
      * @version Septiembre 2024.
      */
-    /* No sería ideal permitirlas instancias del ordenador, pues contendrá un único método y será estático.*/
+    
+    /* No sería ideal permitir instancias del ordenador, pues contendrá un único método y será estático.*/
     private Ordenador(){};
-    // public static void ordena(Lista<String> lista){
-    // 	return lista
-    // }
+    
+    public static Lista<String> ordena(Lista<String> lista) {
+	return lista.mergeSort((l1, l2) -> {
+		String normalizada1 = normaliza(l1);
+		String normalizada2 = normaliza(l2);
+		return normalizada1.compareTo(normalizada2);
+	    });
+    }
 }

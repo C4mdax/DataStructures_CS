@@ -30,7 +30,17 @@ public class Proyecto1 {
 	    }
 	}
 
+	Argumentos banderas = new Argumentos(reversa, escritura);
+	Lista<String> ordenada = Ordenador.ordena(entrada);
+	System.out.println("Texto ordenado: ");
+	for (String s : ordenada){
+	    System.out.println(s);
+	}
 
-
+	System.out.println("\n\nTexto ordenado al revés: ");
+	Lista<String> reves = banderas.reversa(ordenada);
+	for (String s : reves){
+	    System.out.println(s);
+	}
     }
 }
