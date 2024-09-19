@@ -14,12 +14,11 @@ public class Proyecto1 {
         boolean escritura = false; /*"-o": texto ordenado sobrescribiendo el archivo dado*/
 	
 	Lista<String> entrada = new Lista<>();
-	Lista<String> normalizada = new Lista<>();	
 	Procesador procesador = new Procesador();
 
 	if (args.length == 0){
 	    System.out.println("Estándar");
-	    //	    procesador.getEstandar(entrada);
+	    procesador.getEstandar(entrada);
 	}
 	else{
 	    for (String argumento : args){
@@ -30,15 +29,8 @@ public class Proyecto1 {
 		    procesador.getArgumento(argumento, entrada);
 	    }
 	}
-	/* Normalizando el texto dado en el archivo de entrada. */
-	normalizada = procesador.getNormalizada(entrada);
-	System.out.println("----- Entrada: ");
-	for (String s : entrada){
-	    System.out.println(s);
-	}
 
-	System.out.println("----- Normalizada: ");
-	for (String s : normalizada)
-	    System.out.println(s);
+
+
     }
 }

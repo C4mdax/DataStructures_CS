@@ -14,29 +14,18 @@ public class Procesador {
      * @author Luis Angel Moreno Delgado
      * @version Septiembre 2024.
      */
+
     /* Constructor vacío para no perderlo.*/
     public Procesador(){};
 
     /**
      * Método para normalizar cadenas.
      */
-    private String normaliza(String cadena){
+    protected String normaliza(String cadena){
 	return Normalizer.normalize(cadena, Normalizer.Form.NFD)
 	    .replaceAll("[^a-zA-Z0-9]", "")
 	    .toLowerCase()
 	    .trim();
-    }
-
-    /**
-     * Método para normalizar los elementos de una lista.
-     * @param lista,
-     */
-    public Lista<String> getNormalizada(Lista<String> lista){
-	Lista<String> listaNormalizada = new Lista<String>();
-	for (String s : lista){
-	    listaNormalizada.agrega(normaliza(s));
-	}
-	return listaNormalizada;
     }
     
     /**
@@ -75,7 +64,7 @@ public class Procesador {
                 lista.agrega(linea);
             }
         } catch (IOException e) {
-            System.err.println("Error al leer la entrada estándar: " + e.getMessage());
+            System.err.println("Error al leer la entrada: " + e.getMessage());
         }
     }
 }
