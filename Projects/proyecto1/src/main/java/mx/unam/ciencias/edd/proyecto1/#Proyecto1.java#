@@ -16,6 +16,7 @@ public class Proyecto1 {
 	Lista<String> entrada = new Lista<>();
 	Lista<String> textoEntrada = new Lista<>();
 	Procesador procesador = new Procesador();
+
 	/*Entrada estándar*/
 	if (args.length == 0){
 	    procesador.getEstandar(entrada);
