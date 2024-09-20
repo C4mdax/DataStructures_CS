@@ -23,7 +23,10 @@ public class Proyecto1 {
 	else{
 	    for (String argumento : args){
 		entrada.agrega(argumento);
-		if (argumento.equals("-o")) escritura = true;
+		if (argumento.equals("-o")){
+		     escritura = true;
+		     continue;
+		}
 		
 		else if (argumento.equals("-r")) reversa = true;
 		else
