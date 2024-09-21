@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
+import java.io.File;
 import java.text.Normalizer;
 import java.util.Iterator;
 
@@ -14,11 +15,15 @@ public class Procesador {
      * @version Septiembre 2024.
      */
 
-    /* Constructor vacío para no perderlo.*/
-    public Procesador(){};
+    /* Omitimos las instancias de la clase Procesador, pues sus métodos son estáticos.*/
+    protected Procesador(){};
 
     /**
-     * Método para normalizar cadenas.
+     * Método para normalizar cadenas. Ésto es:
+     * - Elimina carácteres diferentes al alfabeto.
+     * - Convierte la cadena a minúsculas.
+     * - Elimina espacios en blanco.
+     * - Elimina en las letras signos ortográficos auxiliares como diéresis y acentos. 
      */
     protected static String normaliza(String cadena){
 	return Normalizer.normalize(cadena, Normalizer.Form.NFD)
@@ -29,21 +34,21 @@ public class Procesador {
     
     /**
      * Lectura por argumentos al programa:
-     * Método para agregar a una lista el texto dentro de un archivo de texto
-     * dada la ruta de éste último. Cada renglón del archivo de texto corresponderá a
+     * Método para agregar el texto contenido en un archivo de texto
+     * en una lista. Cada renglón del archivo de texto corresponderá a
      * un elemento de la lista. El método no limpia la lista parámetro, solo concatena
      * los renglones del archivo de texto.
      * @param lista, la lista que contendrá el texto del archivo de texto.
      * @param ruta, la ruta del archivo (dada en el argumento al ejecutar el programa).
      */
-    public void getArgumento(String ruta, Lista<String> lista) {
+    public static void getArgumento(String ruta, Lista<String> lista) {
         try (BufferedReader br = new BufferedReader(new FileReader(ruta))) {
             String linea;
             while ((linea = br.readLine()) != null) {
                 lista.agrega(linea);
             }
         } catch (IOException e) {
-            System.err.println("Error al leer el archivo: " + e.getMessage());
+            System.err.println("Error de argumento: " + e.getMessage());
         }
     }
     
@@ -56,7 +61,7 @@ public class Procesador {
      * de texto del archivo dado en la entrada estándar.
      * @param lista, la lista que contendrá el texto del archivo de texto.
      */
-    public void getEstandar(Lista<String> lista) {
+    public static void getEstandar(Lista<String> lista) {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             String linea;
             while ((linea = br.readLine()) != null) {
@@ -65,5 +70,15 @@ public class Procesador {
         } catch (IOException e) {
             System.err.println("Error al leer la entrada: " + e.getMessage());
         }
+    }
+
+    /**
+     * Método para verificar si una cadena pertenece a una ruta 
+     * válida de un archivo.
+     * @ruta, la cadena que figura como la ruta del archivo.
+     */
+    public static boolean esValido(String ruta){
+	File archivo = new File(ruta);
+	return archivo.exists() && archivo.isFile();
     }
 }

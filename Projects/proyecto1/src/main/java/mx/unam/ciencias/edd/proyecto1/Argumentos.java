@@ -25,9 +25,9 @@ public class Argumentos {
      * En la clase principal se hace manejo de los atributos de éste objeto para el
      * procesamiento de las banderas.
      */
-    public Argumentos(boolean reversa, boolean esritura){
+    public Argumentos(boolean reversa, boolean escritura){
 	this.MODO_REVERSA = reversa;
-	this.MODO_ESCRITURA = reversa;
+	this.MODO_ESCRITURA = escritura;
     }
 
     /**
