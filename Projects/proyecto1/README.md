@@ -1,12 +1,4 @@
-Estructuras de Datos.
-====================
-
-Proyecto 1: Ordenador lexicográfico.
---------------------
-Requerimentos del programa: 
-
-OpenJDK 11 (Java 11)
-
-Uso: 
-```bash
-git clone 
+## Project 1: Lexicographic Sorter.
+Lexicographic sorter for text files (.txt).
+- Moreno Delgado Luis Angel
+- Semestre 2025-1
