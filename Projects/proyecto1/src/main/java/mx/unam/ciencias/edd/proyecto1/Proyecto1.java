@@ -86,5 +86,4 @@ public class Proyecto1 {
 		System.out.println(linea);
 	}
     } 
->>>>>>> proyecto1
 }
