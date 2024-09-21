@@ -15,8 +15,8 @@ public class Procesador {
      * @version Septiembre 2024.
      */
 
-    /* Constructor vacío para no perderlo.*/
-    public Procesador(){};
+    /* Se omitirá la instanciación de la clase Procesador, pues sus métodos son estáticos.*/
+    protected Procesador(){};
 
     /**
      * Método para normalizar cadenas.
@@ -37,7 +37,7 @@ public class Procesador {
      * @param lista, la lista que contendrá el texto del archivo de texto.
      * @param ruta, la ruta del archivo (dada en el argumento al ejecutar el programa).
      */
-    public void getArgumento(String ruta, Lista<String> lista) {
+    public static void getArgumento(String ruta, Lista<String> lista) {
         try (BufferedReader br = new BufferedReader(new FileReader(ruta))) {
             String linea;
             while ((linea = br.readLine()) != null) {
@@ -57,7 +57,7 @@ public class Procesador {
      * de texto del archivo dado en la entrada estándar.
      * @param lista, la lista que contendrá el texto del archivo de texto.
      */
-    public void getEstandar(Lista<String> lista) {
+    public static void getEstandar(Lista<String> lista) {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             String linea;
             while ((linea = br.readLine()) != null) {
@@ -68,7 +68,11 @@ public class Procesador {
         }
     }
 
-    public boolean esValido(String ruta){
+    /**
+     * Método para verificar si una cadena pertenece a una ruta 
+     * válida de un archivo.
+     */
+    public static boolean esValido(String ruta){
 	File archivo = new File(ruta);
 	return archivo.exists() && archivo.isFile();
     }

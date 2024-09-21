@@ -8,7 +8,7 @@ public class Ordenador extends Procesador{
      * @version Septiembre 2024.
      */
     
-    /* No sería ideal permitir instancias del ordenador, pues contendrá un único método y será estático.*/
+    /* Se omitirá la instanciación de la clase Ordenador, pues contendrá un único método y será estático.*/
     private Ordenador(){};
     
     public static Lista<String> ordena(Lista<String> lista) {
