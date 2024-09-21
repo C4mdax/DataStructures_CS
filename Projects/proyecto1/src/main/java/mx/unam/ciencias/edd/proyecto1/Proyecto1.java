@@ -4,8 +4,6 @@ import mx.unam.ciencias.edd.Lista;
 
 public class Proyecto1 {
     public static void main(String[] args) {
-<<<<<<< HEAD
-=======
 
 	/* Banderas disponibles:*/
         boolean reversa = false;  // "-r": texto ordenado al revés.
