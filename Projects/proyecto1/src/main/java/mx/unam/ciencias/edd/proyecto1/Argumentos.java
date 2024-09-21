@@ -24,6 +24,7 @@ public class Argumentos {
      * Constructor del objeto para argumentos.
      * En la clase principal se hace manejo de los atributos de éste objeto para el
      * procesamiento de las banderas.
+     * @param las banderas disponibles para los argumentos al programa.
      */
     public Argumentos(boolean reversa, boolean escritura){
 	this.MODO_REVERSA = reversa;
@@ -31,8 +32,9 @@ public class Argumentos {
     }
 
     /**
-     * Método reversa
-     * @param lista, la lista.
+     * Método reversa. Regresa la lista invertida dada como parámetro.
+     * Bandera correspondiente: -r.
+     * @param lista, la lista a invertir.
      * @return la lista en reversa.
      */
     public Lista<String> reversa(Lista<String> lista){
@@ -40,9 +42,9 @@ public class Argumentos {
     }
 
     /**
-     * Método escribe. Concatena los elementos de una lista en un archivo dado.
-     * @param lista, la lista.
-     * @return la lista en reversa.
+     * Método escribe. Sobrescribe con los elementos de la lista al archivo dado.
+     * Bandera correspondiente: -o.
+     * @param lista, la lista para sobrescribir al archivo.
      */
     public void escribe(String archivo, Lista<String> lista){
 	try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivo))) {
