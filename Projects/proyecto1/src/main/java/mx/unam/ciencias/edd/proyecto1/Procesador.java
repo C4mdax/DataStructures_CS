@@ -75,7 +75,7 @@ public class Procesador {
     /**
      * Método para verificar si una cadena pertenece a una ruta 
      * válida de un archivo.
-     * @ruta, la cadena que figura como la ruta del archivo.
+     * @param ruta, la cadena que figura como la ruta del archivo.
      */
     public static boolean esValido(String ruta){
 	File archivo = new File(ruta);
