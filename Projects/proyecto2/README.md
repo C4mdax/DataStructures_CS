@@ -1,9 +1,13 @@
-Estructuras de Datos.
-====================
+## Project 2: SVG Data Structures drawer.
+A program to draw data structures with SVG code.
+#### Data Structures availables:
+- Lists
+- Queues
+- Stacks
+- Trees (AVL, Binarys, Red-Black)
+- Graphs
+- Mounds
 
-Proyecto 1: Ordenador lexicográfico.
---------------------
-Requerimentos del programa: 
-```bash
-sudo
+- Moreno Delgado Luis Angel
+- Semestre 2025-1
 
