@@ -9,6 +9,5 @@ A program to draw data structures with SVG code.
 * Graphs
 * Mounds
 
-- Moreno Delgado Luis Angel
-- Semestre 2025-1
+Moreno Delgado Luis Angel, 2025-1.
 
